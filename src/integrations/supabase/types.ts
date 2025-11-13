@@ -14,195 +14,16 @@ export type Database = {
   }
   public: {
     Tables: {
-      alerts: {
-        Row: {
-          created_at: string
-          id: string
-          is_read: boolean
-          machine_id: string | null
-          message: string
-          severity: Database["public"]["Enums"]["event_severity"]
-          title: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          is_read?: boolean
-          machine_id?: string | null
-          message: string
-          severity?: Database["public"]["Enums"]["event_severity"]
-          title: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          is_read?: boolean
-          machine_id?: string | null
-          message?: string
-          severity?: Database["public"]["Enums"]["event_severity"]
-          title?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "alerts_machine_id_fkey"
-            columns: ["machine_id"]
-            isOneToOne: false
-            referencedRelation: "machines"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      events: {
-        Row: {
-          created_at: string
-          description: string | null
-          event_type: string
-          id: string
-          machine_id: string
-          metadata: Json | null
-          severity: Database["public"]["Enums"]["event_severity"]
-          title: string
-        }
-        Insert: {
-          created_at?: string
-          description?: string | null
-          event_type: string
-          id?: string
-          machine_id: string
-          metadata?: Json | null
-          severity?: Database["public"]["Enums"]["event_severity"]
-          title: string
-        }
-        Update: {
-          created_at?: string
-          description?: string | null
-          event_type?: string
-          id?: string
-          machine_id?: string
-          metadata?: Json | null
-          severity?: Database["public"]["Enums"]["event_severity"]
-          title?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "events_machine_id_fkey"
-            columns: ["machine_id"]
-            isOneToOne: false
-            referencedRelation: "machines"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      machines: {
-        Row: {
-          cpu_usage: number | null
-          created_at: string
-          disk_usage: number | null
-          hostname: string
-          id: string
-          ip_address: string | null
-          last_seen: string
-          memory_usage: number | null
-          name: string
-          os: string
-          os_version: string | null
-          status: Database["public"]["Enums"]["machine_status"]
-          updated_at: string
-        }
-        Insert: {
-          cpu_usage?: number | null
-          created_at?: string
-          disk_usage?: number | null
-          hostname: string
-          id?: string
-          ip_address?: string | null
-          last_seen?: string
-          memory_usage?: number | null
-          name: string
-          os: string
-          os_version?: string | null
-          status?: Database["public"]["Enums"]["machine_status"]
-          updated_at?: string
-        }
-        Update: {
-          cpu_usage?: number | null
-          created_at?: string
-          disk_usage?: number | null
-          hostname?: string
-          id?: string
-          ip_address?: string | null
-          last_seen?: string
-          memory_usage?: number | null
-          name?: string
-          os?: string
-          os_version?: string | null
-          status?: Database["public"]["Enums"]["machine_status"]
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      profiles: {
-        Row: {
-          created_at: string
-          email: string
-          full_name: string | null
-          id: string
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          full_name?: string | null
-          id: string
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          full_name?: string | null
-          id?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      user_roles: {
-        Row: {
-          created_at: string
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "viewer"
-      event_severity: "info" | "warning" | "error" | "critical"
-      machine_status: "online" | "offline" | "warning" | "error"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -329,10 +150,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      app_role: ["admin", "viewer"],
-      event_severity: ["info", "warning", "error", "critical"],
-      machine_status: ["online", "offline", "warning", "error"],
-    },
+    Enums: {},
   },
 } as const
